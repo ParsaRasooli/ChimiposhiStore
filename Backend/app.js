@@ -31,7 +31,7 @@ app.use(`${api}/orders`, ordersRoutes);
 mongoose.connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'eshop-database'
+    dbName: 'ChimiposhiStore'
 })
 .then(()=>{
     console.log('Database Connection is ready...')
