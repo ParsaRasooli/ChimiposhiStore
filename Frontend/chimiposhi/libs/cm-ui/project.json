@@ -1,0 +1,47 @@
+{
+    "name": "cm-ui",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/cm-ui/src",
+    "prefix": "chimiposhi",
+    "tags": [],
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:ng-packagr-lite",
+            "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+            "options": {
+                "project": "libs/cm-ui/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "libs/cm-ui/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "libs/cm-ui/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/cm-ui/jest.config.ts",
+                "passWithNoTests": true
+            },
+            "configurations": {
+                "ci": {
+                    "ci": true,
+                    "codeCoverage": true
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/cm-ui/**/*.ts", "libs/cm-ui/**/*.html", "libs/cm-ui/package.json"]
+            }
+        }
+    }
+}

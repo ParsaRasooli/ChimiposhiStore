@@ -9,7 +9,7 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "chimiposhi",
+                        "prefix": "users",
                         "style": "camelCase"
                     }
                 ],
@@ -17,7 +17,7 @@
                     "error",
                     {
                         "type": "element",
-                        "prefix": "chimiposhi",
+                        "prefix": "users",
                         "style": "kebab-case"
                     }
                 ]
