@@ -1,0 +1,25 @@
+//base
+@import './base/mixins.scss';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+
+//libraries
+@import '~primeicons/primeicons.css';
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.css";
+@import '~primeflex/primeflex.css';
+
+//override primeng fonts
+@import './base/configuartion.scss';
+
+//pages
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/product-list-page.scss';
+
+//shared
+@import './apps/shop/shared/footer.scss';
+@import './apps/shop/shared/header.scss';
+//libs
+@import './libs/ui/ui.scss';
+
+
