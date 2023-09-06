@@ -22,7 +22,8 @@ export class CategoriesFormComponent implements OnInit {
     ngOnInit(): void {
         this.form = this.formbuilder.group({
             name: ['', Validators.required],
-            icon: ['', Validators.required]
+            icon: ['', Validators.required],
+            color: ['fff']
         });
     }
     onSubmit() {
@@ -32,19 +33,23 @@ export class CategoriesFormComponent implements OnInit {
         }
         const category: Category = {
             name: this.form.controls['name'].value,
-            icon: this.form.controls['icon'].value
+            icon: this.form.controls['icon'].value,
+            color: this.form.controls['color'].value
         };
         this.categoryService.createCategory(category).subscribe(
-            (res) => {
+            () => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category created !' });
                 timer(2000).subscribe(() => this.location.back());
             },
-            (error) => {
+            () => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category is not created !' });
             }
         );
     }
     get categoryForm() {
         return this.form.controls;
+    }
+    onCancel() {
+        this.location.back();
     }
 }

@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { CategoriesService, Category } from '@chimiposhi/products';
+
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 
@@ -11,16 +11,13 @@ import { ConfirmationService } from 'primeng/api';
 })
 export class CategoriesListComponent implements OnInit {
     categories: Category[] = [];
-    categoryEditForm!: FormGroup;
     editMode = false;
-    isSubmitted = false;
+    updatedName!: string;
+    updatedIcon = '';
     _categoryid = '';
-    constructor(
-        private categoryService: CategoriesService,
-        private messageService: MessageService,
-        private confirmationService: ConfirmationService,
-        private formbuilder: FormBuilder
-    ) {}
+    categoryIcon = 'default';
+    categoryName = 'default';
+    constructor(private categoryService: CategoriesService, private messageService: MessageService, private confirmationService: ConfirmationService) {}
     ngOnInit(): void {
         this._getCategory();
     }
@@ -31,11 +28,11 @@ export class CategoriesListComponent implements OnInit {
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.categoryService.deleteCategory(categoryId).subscribe(
-                    (res) => {
+                    () => {
                         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category deleted successfully !' });
                         this._getCategory();
                     },
-                    (error) => {
+                    () => {
                         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to remvove category !' });
                     }
                 );
@@ -47,15 +44,32 @@ export class CategoriesListComponent implements OnInit {
             this.categories = res;
         });
     }
-    onEdit(categoryId: string) {
+    onEdit(category: Category) {
         this.editMode = true;
-        this._categoryid = categoryId;
+        this._categoryid = '' + category.id;
+        this.categoryIcon = category.icon;
+        this.categoryName = category.name;
     }
-    editCategory() {
-        this.isSubmitted = true;
-        this.categoryEditForm = this.formbuilder.group({
-            name: ['', Validators.required],
-            icon: ['', Validators.required]
+    editCategory(category: Category) {
+        this.editMode = false;
+        const updatedCategoryRow: Category = {
+            id: category.id,
+            name: this.categoryName,
+            icon: this.categoryIcon,
+            color: category.color
+        };
+        this.categoryService.updateCategory(updatedCategoryRow).subscribe({
+            next: () => {
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category updated successfully !' });
+                this._getCategory();
+            },
+            error: () => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Could not update the category !' });
+            }
         });
+    }
+    onCancel() {
+        this.editMode = !this.editMode;
+        this._getCategory();
     }
 }
