@@ -7,6 +7,7 @@ import { appRoutes } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { UsersService } from '@chimiposhi/users';
 
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -31,8 +32,14 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { TagModule } from 'primeng/tag';
 
 const UX_MODULE = [
+    InputMaskModule,
+    TagModule,
     TableModule,
     CardModule,
     ToolbarModule,
@@ -57,7 +64,9 @@ const UX_MODULE = [
         CategoriesListComponent,
         CategoriesFormComponent,
         ProductsListComponent,
-        ProductsFormComponent
+        ProductsFormComponent,
+        UsersListComponent,
+        UsersFormComponent
     ],
     imports: [
         BrowserModule,
@@ -68,7 +77,7 @@ const UX_MODULE = [
         ReactiveFormsModule,
         BrowserAnimationsModule
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService],
+    providers: [CategoriesService, MessageService, ConfirmationService, UsersService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
