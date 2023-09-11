@@ -36,8 +36,13 @@ import { UsersListComponent } from './pages/users/users-list/users-list.componen
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { InputMaskModule } from 'primeng/inputmask';
 import { TagModule } from 'primeng/tag';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+import { OrdersService } from '@chimiposhi/orders';
+import { FieldsetModule } from 'primeng/fieldset';
 
 const UX_MODULE = [
+    FieldsetModule,
     InputMaskModule,
     TagModule,
     TableModule,
@@ -66,7 +71,9 @@ const UX_MODULE = [
         ProductsListComponent,
         ProductsFormComponent,
         UsersListComponent,
-        UsersFormComponent
+        UsersFormComponent,
+        OrdersListComponent,
+        OrdersDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -77,7 +84,7 @@ const UX_MODULE = [
         ReactiveFormsModule,
         BrowserAnimationsModule
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService, UsersService],
+    providers: [CategoriesService, MessageService, ConfirmationService, UsersService, OrdersService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
