@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@chimiposhi/products';
+import { UiModule } from '@chimiposhi/ui';
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
@@ -18,7 +19,8 @@ import { ProductsModule } from '@chimiposhi/products';
         RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
         AccordionModule,
         BrowserAnimationsModule,
-        ProductsModule
+        ProductsModule,
+        UiModule
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -15,11 +15,11 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@chimiposhi/cm-ui": ["libs/cm-ui/src/index.ts"],
             "@chimiposhi/orders": ["libs/orders/src/index.ts"],
             "@chimiposhi/products": ["libs/products/src/index.ts"],
+            "@chimiposhi/ui": ["libs/ui/src/index.ts"],
             "@chimiposhi/users": ["libs/users/src/index.ts"],
-            "@env/*":["environments/*"]
+            "@env/*": ["environments/*"]
         }
     },
     "exclude": ["node_modules", "tmp"]

@@ -7,6 +7,6 @@ import { ProductsSearchComponent } from './components/products-search/products-s
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(productsRoutes)],
     declarations: [ProductsSearchComponent],
-    exports: []
+    exports: [ProductsSearchComponent]
 })
 export class ProductsModule {}

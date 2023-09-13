@@ -4,5 +4,26 @@
   border-radius: 10px ;
   width: 275px;
   height: 35px;
+  margin-top: -7px;
+
+  .pi{
+    width: 25px;
+    font-size: 1.3em;
+    color: $primary-color;
+    margin-right: 10px ;
+    margin-top: 7px;
+    padding-left: 8px;
+  }
+  &-input{
+    height: 35px;
+    background-color: transparent;
+    color: var(--surface-600);
+    border: 0;
+    &:active,&:focus{
+      border: 0;
+      outline: none;
+
+    }
+  }
 
 }
