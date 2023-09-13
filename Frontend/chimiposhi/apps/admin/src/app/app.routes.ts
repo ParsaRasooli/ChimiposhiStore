@@ -9,14 +9,17 @@ import { UsersListComponent } from './pages/users/users-list/users-list.componen
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+import { AuthGuard } from '@chimiposhi/users';
+import { LoginComponent } from 'libs/users/src/lib/pages/login/login.component';
 
 export const appRoutes: Route[] = [
     {
         path: '',
         component: ShellComponent,
+        canActivate: [AuthGuard],
         children: [
             {
-                path: 'dashboard',
+                path: '',
                 component: DashboardComponent
             },
             {
@@ -60,5 +63,9 @@ export const appRoutes: Route[] = [
                 component: OrdersDetailComponent
             }
         ]
+    },
+    {
+        path: '**',
+        redirectTo: 'login'
     }
 ];

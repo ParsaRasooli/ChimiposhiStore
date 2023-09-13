@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { usersRoutes } from './lib.routes';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(usersRoutes)]
+    imports: [CommonModule, RouterModule.forChild(usersRoutes), InputTextModule, ButtonModule, FormsModule, ReactiveFormsModule],
+    declarations: [LoginComponent]
 })
 export class UsersModule {}

@@ -1,4 +1,5 @@
 //base
+@import '~normalize.css/normalize.css';
 @import './base/mixins.scss';
 @import './base/colors.scss';
 @import './base/fonts.scss';
@@ -20,7 +21,17 @@
 //shared
 @import './apps/shop/shared/footer.scss';
 @import './apps/shop/shared/header.scss';
+@import './apps/shop/shared/nav.scss';
+
 //libs
 @import './libs/ui/ui.scss';
+@import './libs/orders/orders.scss';
+@import './libs/users/users.scss';
+@import './libs/products/products.scss';
 
-
+.container{
+  width: 1200px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: var(--surface-100);
+}

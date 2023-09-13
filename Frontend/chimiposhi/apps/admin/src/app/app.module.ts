@@ -7,7 +7,7 @@ import { appRoutes } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
-import { UsersService } from '@chimiposhi/users';
+import { UsersModule, UsersService } from '@chimiposhi/users';
 
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -82,7 +82,8 @@ const UX_MODULE = [
         ...UX_MODULE,
         FormsModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        UsersModule
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, UsersService, OrdersService],
     bootstrap: [AppComponent]
