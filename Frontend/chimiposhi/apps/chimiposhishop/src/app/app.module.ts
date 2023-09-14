@@ -9,8 +9,9 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
-import { ProductsModule } from '@chimiposhi/products';
+import { CategoriesService, ProductsModule } from '@chimiposhi/products';
 import { UiModule } from '@chimiposhi/ui';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
@@ -20,9 +21,10 @@ import { UiModule } from '@chimiposhi/ui';
         AccordionModule,
         BrowserAnimationsModule,
         ProductsModule,
-        UiModule
+        UiModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [CategoriesService],
     bootstrap: [AppComponent],
     exports: [HeaderComponent, FooterComponent, NavComponent]
 })
