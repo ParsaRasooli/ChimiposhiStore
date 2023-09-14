@@ -3,6 +3,7 @@ import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { Category } from '../../models/category';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'products-products-list',
@@ -12,10 +13,14 @@ import { Category } from '../../models/category';
 export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     binary = true;
+    isCategory = false;
     categories: Category[] = [];
-    constructor(private productsService: ProductsService, private categoryService: CategoriesService) {}
+    constructor(private productsService: ProductsService, private categoryService: CategoriesService, private route: ActivatedRoute) {}
     ngOnInit(): void {
-        this._getProducts();
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            params.get('categoryid') ? this._getProducts([params.get('categoryid') as string]) : this._getProducts();
+            params.get('categoryid') ? (this.isCategory = true) : (this.isCategory = false);
+        });
         this._getCategories();
     }
 

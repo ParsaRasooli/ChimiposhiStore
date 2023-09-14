@@ -5,5 +5,9 @@ export const productsRoutes: Route[] = [
     {
         path: 'products',
         component: ProductsListComponent
+    },
+    {
+        path: 'category/:categoryid',
+        component: ProductsListComponent
     }
 ];
