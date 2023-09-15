@@ -11,11 +11,22 @@ import { ButtonModule } from 'primeng/button';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { RatingModule } from 'primeng/rating';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { UiModule } from '@chimiposhi/ui';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(productsRoutes), ButtonModule, CheckboxModule, FormsModule],
-    declarations: [ProductsSearchComponent, CategoriesBannerComponent, ProductItemComponent, FeaturedProductsComponent, ProductsListComponent],
-    exports: [ProductsSearchComponent, CategoriesBannerComponent, ProductItemComponent, FeaturedProductsComponent, ProductsListComponent],
+    imports: [CommonModule, RouterModule.forChild(productsRoutes), ButtonModule, CheckboxModule, FormsModule, RatingModule, InputNumberModule, UiModule],
+    declarations: [
+        ProductsSearchComponent,
+        CategoriesBannerComponent,
+        ProductItemComponent,
+        FeaturedProductsComponent,
+        ProductsListComponent,
+        ProductPageComponent
+    ],
+    exports: [ProductsSearchComponent, CategoriesBannerComponent, ProductItemComponent, FeaturedProductsComponent, ProductsListComponent, ProductPageComponent],
     providers: [CategoriesService]
 })
 export class ProductsModule {}

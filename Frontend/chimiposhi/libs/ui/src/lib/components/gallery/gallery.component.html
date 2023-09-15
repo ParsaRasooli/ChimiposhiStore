@@ -1,0 +1,11 @@
+<div class="gallery">
+  <div class="main-image">
+    <img [src]="selectedImage" alt="see">
+  </div>
+  <div class="images">
+    <ul>
+      <li *ngFor="let image of images" [ngStyle]="{'background':'url(' + image + ')'}">
+      </li>
+    </ul>
+  </div>
+</div>
