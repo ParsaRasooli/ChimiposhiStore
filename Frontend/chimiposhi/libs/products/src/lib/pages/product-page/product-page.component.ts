@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
+import { Cart, CartItem, CartService } from '@chimiposhi/orders';
 
 @Component({
     selector: 'products-product-page',
@@ -13,9 +14,9 @@ import { ProductsService } from '../../services/products.service';
 export class ProductPageComponent implements OnInit, OnDestroy {
     product!: Product;
     endSubs$: Subject<any> = new Subject();
-    quantity!: number;
+    quantity = 1;
 
-    constructor(private prodService: ProductsService, private route: ActivatedRoute) {}
+    constructor(private prodService: ProductsService, private route: ActivatedRoute, private cartService: CartService) {}
 
     ngOnInit(): void {
         this.route.params.subscribe((params) => {
@@ -30,7 +31,11 @@ export class ProductPageComponent implements OnInit, OnDestroy {
     }
 
     addProductToCart() {
-        console.log();
+        const cartItem: CartItem = {
+            productId: this.product.id,
+            quantity: this.quantity
+        };
+        this.cartService.setCartItem(cartItem);
     }
 
     private _getProduct(id: string) {

@@ -12,9 +12,13 @@ import { NavComponent } from './shared/nav/nav.component';
 import { CategoriesService, ProductsModule } from '@chimiposhi/products';
 import { UiModule } from '@chimiposhi/ui';
 import { HttpClientModule } from '@angular/common/http';
+import { CartService, OrdersModule } from '@chimiposhi/orders';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent],
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
@@ -22,10 +26,12 @@ import { HttpClientModule } from '@angular/common/http';
         BrowserAnimationsModule,
         ProductsModule,
         UiModule,
-        HttpClientModule
+        HttpClientModule,
+        OrdersModule,
+        ToastModule
     ],
-    providers: [CategoriesService],
+    providers: [CategoriesService, MessageService, CartService],
     bootstrap: [AppComponent],
-    exports: [HeaderComponent, FooterComponent, NavComponent]
+    exports: [HeaderComponent, FooterComponent, NavComponent, MessagesComponent]
 })
 export class AppModule {}

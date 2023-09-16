@@ -86,6 +86,7 @@ const UX_MODULE = [
         UsersModule
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, UsersService, OrdersService],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    exports: []
 })
 export class AppModule {}
