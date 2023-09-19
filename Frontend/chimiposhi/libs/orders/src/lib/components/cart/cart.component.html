@@ -1,5 +1,10 @@
 
-<p-sidebar [(visible)]="show" position="left" class="sidebar">
+<p-sidebar [(visible)]="show" position="left" class="sidebar" [closeOnEscape]="true" (onHide)="onHide()">
+
   <h3>سبد خرید</h3>
+  <p-divider></p-divider>
+  <orders-cart-item [cartData]="product"  *ngFor="let product of products "></orders-cart-item>
+  <p-divider></p-divider>
+  <orders-order-summary></orders-order-summary>
 
 </p-sidebar>

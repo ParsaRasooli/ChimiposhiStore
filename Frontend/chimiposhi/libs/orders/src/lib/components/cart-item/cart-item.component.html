@@ -1,0 +1,24 @@
+<div class="cart">
+  <div class="cart-card">
+<p-card>
+  <div class="cart-content">
+  <p>{{cartData.product.name}}</p>
+  <img [src]="cartData.product.image">
+</div>
+  <div class="cart-input">
+    <p-inputNumber [min]="1" [max]="50" (onInput)="updateCartQuantity($event,cartData)"  [(ngModel)]="cartData.quantity" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1"
+    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" ></p-inputNumber>
+  </div>
+
+
+
+    <div class="cart-footer">
+
+    <div class="cart-price"> قیمت :  &nbsp;{{cartData.quantity * cartData.product.price}}</div>
+      <i class="pi pi-times" (click)="delete()"></i>
+</div>
+
+
+</p-card>
+</div>
+</div>

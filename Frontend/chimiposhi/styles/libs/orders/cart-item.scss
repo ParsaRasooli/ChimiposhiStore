@@ -1,0 +1,43 @@
+.cart{
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+  margin-bottom: 10px;
+
+
+  &-card{
+    .cart-content{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    img{
+      width: 2em
+    }
+
+  }
+
+  .p-inputnumber-input{
+    width: 90%;
+    text-align: center;
+  }
+  &-input{
+    direction: ltr !important;
+    margin-bottom: 5px;
+  }
+  &-footer{
+    display: flex;
+    justify-content: space-between;
+    .pi{
+      cursor: pointer;
+      text-align: center;
+      text-justify: inherit;
+      color: red;
+      margin-top: -15px;
+      margin-left: 2px;
+    }
+  }
+  }
+
+
