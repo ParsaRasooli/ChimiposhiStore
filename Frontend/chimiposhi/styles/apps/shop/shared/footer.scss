@@ -1,0 +1,26 @@
+.footer{
+
+  direction: rtl;
+  margin: 10px 0px 0px 0px;
+
+  width: 100%;
+
+  background: #00000e;
+  color: #fff;
+  &-list{
+    margin-right: 50px;
+    list-style: none;
+    ul{
+      li{
+        margin-top:10px ;
+        cursor: pointer ;
+      }
+    }
+  }
+  &-rights{
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+
+  }
+}

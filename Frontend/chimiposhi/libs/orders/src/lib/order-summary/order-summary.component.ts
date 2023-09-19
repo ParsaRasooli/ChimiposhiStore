@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { take } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,10 +10,17 @@ import { Router } from '@angular/router';
 })
 export class OrderSummaryComponent implements OnInit {
     totalPrice!: number;
-    constructor(private cartService: CartService, private router: Router) {}
+    isCheckOut = false;
+    @Output() Open: EventEmitter<any> = new EventEmitter();
+    constructor(private cartService: CartService, private router: Router) {
+        router.url.includes('checkout') ? (this.isCheckOut = true) : (this.isCheckOut = false);
+    }
 
     ngOnInit(): void {
         this._getOrderSummary();
+    }
+    update() {
+        this.Open.emit(true);
     }
     _getOrderSummary() {
         this.cartService.cart$.pipe().subscribe((cart) => {
@@ -24,13 +31,10 @@ export class OrderSummaryComponent implements OnInit {
                         .getProd('' + item.productId)
                         .pipe(take(1))
                         .subscribe((product) => {
-                            this.totalPrice += product.price * item.quantity;
+                            this.totalPrice += product?.price * item.quantity;
                         });
                 });
             }
         });
-    }
-    navigateCheckout() {
-        this.router.navigate(['/checkout']);
     }
 }

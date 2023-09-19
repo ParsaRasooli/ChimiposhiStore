@@ -1,6 +1,6 @@
 import { Product } from '@chimiposhi/products';
 
-export interface OrderItem {
-    product: Product;
-    quantity: number;
+export class OrderItem {
+    product!: any;
+    quantity!: number;
 }

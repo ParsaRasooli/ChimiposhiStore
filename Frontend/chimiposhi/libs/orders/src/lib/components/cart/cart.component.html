@@ -5,6 +5,6 @@
   <p-divider></p-divider>
   <orders-cart-item [cartData]="product"  *ngFor="let product of products "></orders-cart-item>
   <p-divider></p-divider>
-  <orders-order-summary></orders-order-summary>
+  <orders-order-summary>  <p-button  (onClick)="navigateCheckout()" label="پرداخت" styleClass="p-button-rounded p-button-success btn" ></p-button></orders-order-summary>
 
 </p-sidebar>

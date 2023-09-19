@@ -63,6 +63,7 @@ const UX_MODULE = [
 @NgModule({
     declarations: [
         AppComponent,
+
         ShellComponent,
         SidebarComponent,
         DashboardComponent,
@@ -78,6 +79,7 @@ const UX_MODULE = [
     imports: [
         BrowserModule,
         HttpClientModule,
+
         RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
         ...UX_MODULE,
         FormsModule,

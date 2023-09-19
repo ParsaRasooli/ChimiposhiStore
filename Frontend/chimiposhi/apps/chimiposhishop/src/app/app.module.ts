@@ -16,6 +16,7 @@ import { CartService, OrdersModule } from '@chimiposhi/orders';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { UsersModule } from '@chimiposhi/users';
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, MessagesComponent],
@@ -28,7 +29,8 @@ import { MessageService } from 'primeng/api';
         UiModule,
         HttpClientModule,
         OrdersModule,
-        ToastModule
+        ToastModule,
+        UsersModule
     ],
     providers: [CategoriesService, MessageService, CartService],
     bootstrap: [AppComponent],

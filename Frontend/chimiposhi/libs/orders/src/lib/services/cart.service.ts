@@ -62,4 +62,11 @@ export class CartService {
         localStorage.setItem(CARD_KEY, JSON.stringify(cart));
         this.cart$.next(cart);
     }
+    emptyCart() {
+        const initialCart = {
+            items: []
+        };
+        localStorage.setItem(CARD_KEY, JSON.stringify(initialCart));
+        this.cart$.next(initialCart);
+    }
 }

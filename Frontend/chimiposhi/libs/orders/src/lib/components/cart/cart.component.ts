@@ -4,6 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { CartDetail } from '../../models/cart';
 import { Observable, from, of } from 'rxjs';
 import { Product } from '@chimiposhi/products';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'orders-cart',
@@ -18,7 +19,7 @@ export class CartComponent implements OnInit {
     @Input() show!: boolean;
     @Output() status: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    constructor(private cartService: CartService) {}
+    constructor(private cartService: CartService, private router: Router) {}
     ngOnInit(): void {
         this.data();
     }
@@ -34,5 +35,9 @@ export class CartComponent implements OnInit {
     onHide() {
         this.cartSideBar = !this.cartSideBar;
         this.status.emit(this.cartSideBar);
+    }
+    navigateCheckout() {
+        this.show = false;
+        this.router.navigate(['/checkout']);
     }
 }

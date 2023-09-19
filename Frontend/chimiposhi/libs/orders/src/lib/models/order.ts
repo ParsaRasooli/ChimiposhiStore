@@ -2,7 +2,7 @@ import { OrderItem } from './order-item';
 import { User } from '@chimiposhi/users';
 
 export interface Order {
-    id: string;
+    id?: string;
     orderItems: OrderItem[];
     shippingAddress1: string;
     shippingAddress2: string;
@@ -11,7 +11,7 @@ export interface Order {
     country: string;
     phone: string;
     status: number;
-    totalPrice: string;
-    user: User;
+    totalPrice?: string;
+    user: any;
     dateOrdered: string;
 }

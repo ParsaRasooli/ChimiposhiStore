@@ -3,7 +3,11 @@
 <p-card>
   <div>هزینه بسته بندی و ارسال : <span style="color: green;">رایگان</span></div>
   <div class="total">   ارزش سبد خرید:{{totalPrice}}</div>
-  <p-button label="پرداخت" styleClass="p-button-rounded p-button-success btn" ></p-button>
+  <div *ngIf="!isCheckOut ; else sumbit"> <ng-content></ng-content></div>
+  <ng-template #sumbit>
+    <p-button  (onClick)="update()" label="submit" styleClass="p-button-rounded p-button-success btn" ></p-button>
+  </ng-template>
+
 </p-card>
 
 </div>
